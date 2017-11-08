@@ -4,15 +4,13 @@ import java.util.Random;
 
 public class Snowflake extends Rectangle{
     private static int sean;
-    private static int x = 10;
-    private static int y = 10;
-    private static int s = 6;
-    private static int a = 3;
 
 
     public Snowflake() {
 
         super(0, 0, 2000, 2000);
+
+
 
         Random gen = new Random();
         sean = gen.nextInt(3) + 1;
@@ -20,19 +18,19 @@ public class Snowflake extends Rectangle{
 
         switch (sean) {
             case 1:
-                this.add(shapeOne());
+                shapeOne();
                 break;
             case 2:
-                this.add(shapeTwo());
+                shapeTwo();
                 break;
             case 3:
-                this.add(shapeThree());
+                shapeThree();
                 break;
         }
 
     }
 
-    public Snowflake shapeOne(){
+    public void shapeOne(){
 
         this.setBackground(Color.BLACK);
         int count = 0;
@@ -40,18 +38,16 @@ public class Snowflake extends Rectangle{
 
 
         while (count < 20) {
-            Polygon ryan = new Polygon(x, y, 50, s, angle, Color.decode("#ffffff"));
+            Polygon ryan = new Polygon(300, 100, 50, 3, angle, Color.decode("#ffffff"));
             this.add(ryan);
-            angle += Math.PI / a;
+            angle += Math.PI / 5;
             count++;
 
         }
-
-        return Snowflake;
 
     }
 
-    public Snowflake shapeTwo(){
+    public void shapeTwo(){
 
         this.setBackground(Color.BLACK);
         int count = 0;
@@ -59,18 +55,16 @@ public class Snowflake extends Rectangle{
 
 
         while (count < 20) {
-            Polygon ryan = new Polygon(x, y, 50, s, angle, Color.decode("#ffffff"));
+            Polygon ryan = new Polygon(200, 100, 50, 6, angle, Color.decode("#ffffff"));
             this.add(ryan);
-            angle += Math.PI / a;
+            angle += Math.PI / 3;
             count++;
 
         }
-
-        return Snowflake;
 
     }
 
-    public Snowflake shapeThree(){
+    public void shapeThree(){
 
         this.setBackground(Color.BLACK);
         int count = 0;
@@ -78,14 +72,12 @@ public class Snowflake extends Rectangle{
 
 
         while (count < 20) {
-            Polygon ryan = new Polygon(x, y, 50, s, angle, Color.decode("#ffffff"));
+            Polygon ryan = new Polygon(100, 100, 20, 8, angle, Color.decode("#ffffff"));
             this.add(ryan);
-            angle += Math.PI / a;
+            angle += Math.PI / 4;
             count++;
 
         }
-
-        return Snowflake;
 
     }
 
