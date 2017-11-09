@@ -3,42 +3,43 @@ import java.awt.*;
 import java.util.Random;
 
 public class Snowflake extends Rectangle{
-    private static int sean;
+    public static final int SHAPEONE=1;
+    public static final int SHAPETWO=2;
+    public static final int SHAPETHREE=3;
 
 
-    public Snowflake() {
+    public Snowflake(int sean, int x, int y) {
 
-        super(0, 0, 2000, 2000);
-
-
+        super(x, y, 200, 200);
 
         Random gen = new Random();
         sean = gen.nextInt(3) + 1;
 
-
         switch (sean) {
-            case 1:
-                shapeOne();
+            case SHAPEONE:
+                shapeOne(x, y);
                 break;
-            case 2:
-                shapeTwo();
+            case SHAPETWO:
+                shapeTwo(x, y);
                 break;
-            case 3:
-                shapeThree();
+            case SHAPETHREE:
+                shapeThree(x, y);
                 break;
         }
 
     }
 
-    public void shapeOne(){
+    public void shapeOne(int x, int y){
 
         this.setBackground(Color.BLACK);
         int count = 0;
         double angle = 0.0;
+        x+=40;
+        y+=40;
 
 
         while (count < 20) {
-            Polygon ryan = new Polygon(300, 100, 50, 3, angle, Color.decode("#ffffff"));
+            Polygon ryan = new Polygon(x, y, 50, 3, angle, Color.decode("#ffffff"));
             this.add(ryan);
             angle += Math.PI / 5;
             count++;
@@ -47,15 +48,17 @@ public class Snowflake extends Rectangle{
 
     }
 
-    public void shapeTwo(){
+    public void shapeTwo(int x, int y){
 
         this.setBackground(Color.BLACK);
         int count = 0;
         double angle = 0.0;
+        x+=90;
+        y+=90;
 
 
-        while (count < 20) {
-            Polygon ryan = new Polygon(200, 100, 50, 6, angle, Color.decode("#ffffff"));
+        while (count < 10) {
+            Polygon ryan = new Polygon(x, y, 50, 6, angle, Color.decode("#ffffff"));
             this.add(ryan);
             angle += Math.PI / 3;
             count++;
@@ -64,15 +67,17 @@ public class Snowflake extends Rectangle{
 
     }
 
-    public void shapeThree(){
+    public void shapeThree(int x, int y){
 
         this.setBackground(Color.BLACK);
         int count = 0;
         double angle = 0.0;
+        x+=40;
+        y+=40;
 
 
         while (count < 20) {
-            Polygon ryan = new Polygon(100, 100, 20, 8, angle, Color.decode("#ffffff"));
+            Polygon ryan = new Polygon(x, y, 20, 8, angle, Color.decode("#ffffff"));
             this.add(ryan);
             angle += Math.PI / 4;
             count++;
@@ -89,8 +94,12 @@ public class Snowflake extends Rectangle{
           win.setDefaultCloseOperation(win.EXIT_ON_CLOSE);
           Rectangle blake = new Rectangle(0, 0, 1000, 1000);
           win.add(blake, 0);
-          Snowflake snowy = new Snowflake();
+          Snowflake snowy = new Snowflake(Snowflake.SHAPEONE, 10, 10);
+          Snowflake another = new Snowflake(Snowflake.SHAPETWO, 210, 210);
+          Snowflake anotheranother = new Snowflake(Snowflake.SHAPETHREE, 260, 260);
           win.add(snowy, 0);
+          win.add(another, 0);
+          win.add(anotheranother, 0);
           win.repaint();
      }
 }
