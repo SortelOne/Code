@@ -6,12 +6,17 @@ public class Snowflake extends Rectangle{
     public static final int SHAPEONE=1;
     public static final int SHAPETWO=2;
     public static final int SHAPETHREE=3;
+    int x;
+    int y;
+    int sx;
+    int sy;
 
 
-    public Snowflake(int sean, int x, int y) {
+    public Snowflake(int x, int y) {
 
         super(x, y, 200, 200);
 
+        int sean;
         Random gen = new Random();
         sean = gen.nextInt(3) + 1;
 
@@ -31,7 +36,8 @@ public class Snowflake extends Rectangle{
 
     public void shapeOne(int x, int y){
 
-        this.setBackground(Color.BLACK);
+        Color grt = new Color(1, 1, 1, 1);
+        this.setBackground(grt);
         int count = 0;
         double angle = 0.0;
         x+=40;
@@ -50,7 +56,8 @@ public class Snowflake extends Rectangle{
 
     public void shapeTwo(int x, int y){
 
-        this.setBackground(Color.BLACK);
+        Color grt = new Color(1, 1, 1, 1);
+        this.setBackground(grt);
         int count = 0;
         double angle = 0.0;
         x+=90;
@@ -69,7 +76,8 @@ public class Snowflake extends Rectangle{
 
     public void shapeThree(int x, int y){
 
-        this.setBackground(Color.BLACK);
+        Color grt = new Color(1, 1, 1, 1);
+        this.setBackground(grt);
         int count = 0;
         double angle = 0.0;
         x+=40;
@@ -86,6 +94,12 @@ public class Snowflake extends Rectangle{
 
     }
 
+        public void move(){
+        Random gen = new Random();
+        x+=sx;
+        y+=sy;
+        }
+
         public static void main (String[]args){
           JFrame win = new JFrame("SNOWY");
           win.setBounds(30, 30, 500, 500);
@@ -94,9 +108,9 @@ public class Snowflake extends Rectangle{
           win.setDefaultCloseOperation(win.EXIT_ON_CLOSE);
           Rectangle blake = new Rectangle(0, 0, 1000, 1000);
           win.add(blake, 0);
-          Snowflake snowy = new Snowflake(Snowflake.SHAPEONE, 10, 10);
-          Snowflake another = new Snowflake(Snowflake.SHAPETWO, 210, 210);
-          Snowflake anotheranother = new Snowflake(Snowflake.SHAPETHREE, 260, 260);
+          Snowflake snowy = new Snowflake(10, 10);
+          Snowflake another = new Snowflake(210, 210);
+          Snowflake anotheranother = new Snowflake(260, 260);
           win.add(snowy, 0);
           win.add(another, 0);
           win.add(anotheranother, 0);
