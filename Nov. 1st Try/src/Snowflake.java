@@ -22,30 +22,27 @@ public class Snowflake extends Rectangle{
 
         switch (sean) {
             case SHAPEONE:
-                shapeOne(x, y);
+                shapeOne();
                 break;
             case SHAPETWO:
-                shapeTwo(x, y);
+                shapeTwo();
                 break;
             case SHAPETHREE:
-                shapeThree(x, y);
+                shapeThree();
                 break;
         }
 
     }
 
-    public void shapeOne(int x, int y){
+    public void shapeOne(){
 
         Color grt = new Color(1, 1, 1, 1);
         this.setBackground(grt);
         int count = 0;
         double angle = 0.0;
-        x+=40;
-        y+=40;
-
 
         while (count < 20) {
-            Polygon ryan = new Polygon(x, y, 50, 3, angle, Color.decode("#ffffff"));
+            Polygon ryan = new Polygon(100, 100, 20, 3, angle, Color.decode("#ffffff"));
             this.add(ryan);
             angle += Math.PI / 5;
             count++;
@@ -54,18 +51,16 @@ public class Snowflake extends Rectangle{
 
     }
 
-    public void shapeTwo(int x, int y){
+    public void shapeTwo(){
 
         Color grt = new Color(1, 1, 1, 1);
         this.setBackground(grt);
         int count = 0;
         double angle = 0.0;
-        x+=90;
-        y+=90;
 
 
         while (count < 10) {
-            Polygon ryan = new Polygon(x, y, 50, 6, angle, Color.decode("#ffffff"));
+            Polygon ryan = new Polygon(100, 100, 20, 6, angle, Color.decode("#ffffff"));
             this.add(ryan);
             angle += Math.PI / 3;
             count++;
@@ -74,18 +69,16 @@ public class Snowflake extends Rectangle{
 
     }
 
-    public void shapeThree(int x, int y){
+    public void shapeThree(){
 
         Color grt = new Color(1, 1, 1, 1);
         this.setBackground(grt);
         int count = 0;
         double angle = 0.0;
-        x+=40;
-        y+=40;
 
 
         while (count < 20) {
-            Polygon ryan = new Polygon(x, y, 20, 8, angle, Color.decode("#ffffff"));
+            Polygon ryan = new Polygon(100, 100, 10, 8, angle, Color.decode("#ffffff"));
             this.add(ryan);
             angle += Math.PI / 4;
             count++;
@@ -94,10 +87,25 @@ public class Snowflake extends Rectangle{
 
     }
 
-        public void move(){
+        public void move(int l){
         Random gen = new Random();
+
+        sy = gen.nextInt(4)+1;
+        sx = gen.nextInt(2)+1;
+
+        x=this.getX();
+        y=this.getY();
+
         x+=sx;
         y+=sy;
+
+        if(y>=1000){
+           y=0;
+           int laing = gen.nextInt();
+           x=laing;
+        }
+
+        this.setLocation(x+sx, y+sy);
         }
 
         public static void main (String[]args){

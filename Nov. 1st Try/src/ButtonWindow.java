@@ -26,7 +26,7 @@ public abstract class ButtonWindow
         //------- Instance Variables used for animation -----------------
         private JButton animateButton;
         private boolean isAnimating = false;
-        protected int fps = 10;
+        protected int fps = 40;
         private Timer t = new Timer();
         
         //-------- Window Methods ---------------------------------------
@@ -185,6 +185,7 @@ public abstract class ButtonWindow
             @Override
             public void run() {
                 act();
+
             }
         }
         public void setFps(int fps)
