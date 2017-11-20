@@ -1,16 +1,41 @@
 import java.util.Random;
 
 public class ProfitArrays {
-    private int[] ryan;
+    private double[] ryan;
     private int blake = 0;
 
-    public ProfitArrays() {
+    public double[] returnArrays() {
         Random gen = new Random();
-        ryan = new int[7];
-        int sean = 0;
+        ryan = new double[7];
+        double sean = 0.0;
         for (int i = 0; i < ryan.length; i++) {
             sean = gen.nextInt(20) + 1;
             sean = ryan[i];
+        }
+        return sean[];
+    }
+
+    public double[] getSales() {
+        return ryan;
+    }
+
+    public void printSales(){
+        getSales();
+        for(int i = 0;i<ryan.length; i++) {
+            if(i==1)
+                System.out.println("The sales for Monday were as follows: " + ryan[i]);
+            if(i==2)
+                System.out.println("The sales for Tuesday were as follows: " + ryan[i]);
+            if(i==3)
+                System.out.println("The sales for Wednesday were as follows: " + ryan[i]);
+            if(i==4)
+                System.out.println("The sales for Thursday were as follows: " + ryan[i]);
+            if(i==5)
+                System.out.println("The sales for Friday were as follows: " + ryan[i]);
+            if(i==6)
+                System.out.println("The sales for Saturday were as follows: " + ryan[i]);
+            if(i==7)
+                System.out.println("The sales for Sunday were as follows: " + ryan[i]);
         }
     }
 
@@ -23,15 +48,9 @@ public class ProfitArrays {
         return average;
     }
 
-    public int getSales(int z) {
-        Random gen = new Random();
-        blake = z;
-        int day = ryan[z];
-        return day;
-    }
+
 
     public static void main(String[]args){
-        //System.out.println("Daily profit for " + blake + getSales(5));
-    }
 
+    }
 }
