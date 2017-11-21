@@ -1,25 +1,26 @@
 import java.util.Random;
 
 public class ProfitArrays {
-    private static double[] ryan;
-    private int blake = 0;
+    private double[] ryan;
 
-    public double ProfitArrays() {
-        Random gen = new Random();
+    public ProfitArrays() {
         ryan = new double[7];
-        double sean = 0.0;
+    }
+
+    public void fillArray(){
+        Random gen = new Random();
+        double sean;
         for (int i = 0; i < ryan.length; i++) {
             sean = gen.nextInt(20) + 1;
             ryan[i] = sean;
         }
-        return sean;
     }
 
-    public static double[] getSales() {
+    public double[] getSales() {
         return ryan;
     }
 
-    public static void printSales(){
+    public void printSales(){
         for(int i = 0;i<ryan.length; i++) {
             if(i==1)
                 System.out.println("The sales for Monday were as follows: " + ryan[i]);
@@ -38,19 +39,35 @@ public class ProfitArrays {
         }
     }
 
-    public static int getAverage(){
-        int average = 0;
+    public void maxSales() {
+        double max;
+        max = ryan[0];
+        for (int j = 0; j < ryan.length; j++) {
+            if (ryan[j] > max) {
+                max = ryan[j];
+            }
+        }
+        System.out.println("The max is: " + max);
+    }
+
+    public void getAverage(){
+        double average = 0.0;
         for(int i = 0; i<ryan.length;i++) {
             average += ryan[i];
         }
         average=average/ryan.length;
-        return average;
+        System.out.println("The average is: " + average);
     }
 
 
 
     public static void main(String[]args){
         ProfitArrays blake = new ProfitArrays();
+        blake.fillArray();
         blake.printSales();
+        System.out.println();
+        blake.getAverage();
+        System.out.println();
+        blake.maxSales();
     }
 }
