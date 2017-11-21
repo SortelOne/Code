@@ -1,26 +1,25 @@
 import java.util.Random;
 
 public class ProfitArrays {
-    private double[] ryan;
+    private static double[] ryan;
     private int blake = 0;
 
-    public double[] returnArrays() {
+    public double ProfitArrays() {
         Random gen = new Random();
         ryan = new double[7];
         double sean = 0.0;
         for (int i = 0; i < ryan.length; i++) {
             sean = gen.nextInt(20) + 1;
-            sean = ryan[i];
+            ryan[i] = sean;
         }
-        return sean[];
+        return sean;
     }
 
-    public double[] getSales() {
+    public static double[] getSales() {
         return ryan;
     }
 
-    public void printSales(){
-        getSales();
+    public static void printSales(){
         for(int i = 0;i<ryan.length; i++) {
             if(i==1)
                 System.out.println("The sales for Monday were as follows: " + ryan[i]);
@@ -39,7 +38,7 @@ public class ProfitArrays {
         }
     }
 
-    public int getAverage(){
+    public static int getAverage(){
         int average = 0;
         for(int i = 0; i<ryan.length;i++) {
             average += ryan[i];
@@ -51,6 +50,7 @@ public class ProfitArrays {
 
 
     public static void main(String[]args){
-
+        ProfitArrays blake = new ProfitArrays();
+        blake.printSales();
     }
 }
