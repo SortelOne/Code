@@ -6,7 +6,7 @@ public class iPod {
     private ArrayList<Song> songList;
 
     public iPod() {
-        songList = new ArrayList<Song>();
+        songList = new ArrayList<>();
         songList.add(new Song("Another Day in Paradise", "Change of Scenery", "Quinn XCII"));
         songList.add(new Song("Little Lion Man", "Sigh No More", "Mumford and Sons"));
         songList.add(new Song("Rumors", "EP",  "Jake Miller"));
@@ -48,11 +48,11 @@ public class iPod {
                 System.out.println("If so, type yes, if not, type no.");
                 ans = scan.nextLine();
             } while (!ans.equalsIgnoreCase("yes"));
-            songList.set(nums, new Song(sn, ar, al));
+            songList.add(nums, new Song(sn, ar, al));
             System.out.println("Would you like to add another song?\nType yes for yes and type no for no\n(Dont ask me why I have to explain that");
             ano = scan.nextLine();
             nums++;
-        }while(!ano.equalsIgnoreCase("yes"));
+        }while(ano.equalsIgnoreCase("yes"));
     }
 
     public void printSongs() {
@@ -69,15 +69,16 @@ public class iPod {
     public void findSongs(){
         Scanner scan = new Scanner (System.in);
         String cDone;
-        boolean found = false;
+        boolean found;
         Song gotIt = null;
         String again;
-
+        found = false;
         do {
             System.out.println("Type in a song name.");
             String input = scan.nextLine();
 
             for (Song s : songList) {
+                System.out.println(s);
                 if (s.getName().equalsIgnoreCase(input)){
                     found = true;
                     gotIt = s;
@@ -94,18 +95,17 @@ public class iPod {
             }
             System.out.println("Would you like to go again");
             cDone = scan.nextLine();
-        }while(!cDone.equalsIgnoreCase("yes"));
+        }while(cDone.equalsIgnoreCase("yes"));
     }
 
     public static void main (String[]args){
         iPod garrett = new iPod();
-        int menu;
+        int menu = 0;
         Scanner scan = new Scanner (System.in);
         String more;
         System.out.println("Welcome to your iPod!");
 
         do {
-            menu = 0;
             System.out.println("Type 1 to print your songs\n2 to add a song and \n3 to find a song.");
             menu = scan.nextInt();
             if (menu == 1) {
@@ -120,5 +120,6 @@ public class iPod {
             System.out.println("Would you like to do something else?\nType yes for yes and no for no.");
             more = scan.nextLine();
         }while(!more.equalsIgnoreCase("yes"));
+
     }
 }
