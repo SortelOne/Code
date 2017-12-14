@@ -34,6 +34,43 @@ public class Main {
         }
     }
 
+    public static void saveData(){
+        try{
+            //Create an object that opens a file for writing data
+            //FileOutputStream fileOut = new FileOutputStream("info.txt");
+            //Create a stream object that connects to the file
+            DataOutputStream dataOut = new DataOutputStream(new FileOutputStream("info.txt"));
+            dataOut.writeInt(42);
+            dataOut.writeDouble(4.5);
+            dataOut.writeBoolean(true);
+            dataOut.close();
+
+        }catch(IOException e)
+        {
+            System.out.println("Couldn't read from the file");
+            e.printStackTrace();
+        }
+    }
+
+    public static void readData(){
+        try {
+            //Create an object that opens a file for writing data
+            //FileInputStream fileIn = new FileInputStream("info.txt");
+            //Create a stream object that connects to the file
+            DataInputStream dataIn = new DataInputStream(new FileInputStream("info.txt"));
+            int i = dataIn.readInt();
+            double d = dataIn.readDouble();
+            boolean b = dataIn.readBoolean();
+            System.out.println(i);
+
+            dataIn.close();
+
+        }catch(IOException e){
+            System.out.println("Couldn't read from file");
+            e.printStackTrace();
+        }
+    }
+
     public static void arrayToFile(ArrayList<String> theList){
         try{
             BufferedWriter writer = new BufferedWriter(new FileWriter("vacation.txt"));
@@ -75,10 +112,11 @@ public class Main {
     public static void main(String[] args) {
         writeToFile();
         readFromFile();
-
         ArrayList<String>theList = new ArrayList<String>();
         fileToArray(theList);
         printArray(theList);
         arrayToFile(theList);
+        saveData();
+        readData();
     }
 }
