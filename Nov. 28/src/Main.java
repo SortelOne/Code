@@ -174,11 +174,15 @@ public class Main {
         buildTable();
         printTable();
         boolean win = false;
+        int cat = 0;
         System.out.println("Welcome to Tic Tac Toe!");
         do{
             takeInput();
             win = winCondition();
-        }while(win==false);
-
+            cat++;
+        }while(win==false&&cat<9);
+        if(cat==9){
+            System.out.println("Its a tie!");
+        }
     }
 }

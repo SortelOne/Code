@@ -78,7 +78,6 @@ public class iPod {
             String input = scan.nextLine();
 
             for (Song s : songList) {
-                System.out.println(s);
                 if (s.getName().equalsIgnoreCase(input)){
                     found = true;
                     gotIt = s;
